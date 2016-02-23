@@ -1,0 +1,10 @@
+.button(@name; @color) {
+	.@{name}.button {
+		background: radial-gradient(circle, @color-white-overlay 50%, transparent 50%), @color;
+	}
+
+	.inverted.@{name}.button {
+		color: @color;
+		background: radial-gradient(circle, fade(@color-black, 5%) 50%, transparent 50%);
+	}
+}
