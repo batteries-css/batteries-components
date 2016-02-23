@@ -1,0 +1,46 @@
+@import "mixins.less";
+
+@range-padding: 10px;
+@range-height: 3px;
+@range-track-size: 15px;
+@range-track-grow-size: 5px;
+
+input[type="range"] {
+	-webkit-appearance: none;
+
+	padding-top: @range-padding;
+	padding-bottom: @range-padding;
+
+	&::-webkit-slider-runnable-track,
+	&:focus::-webkit-slider-runnable-track {
+		.range-background(@range-track-size, @range-height);
+	}
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+
+		.range-thumb(@range-track-size);
+	}
+
+	&[disabled] {
+		&::-webkit-slider-thumb {
+			border: @range-track-grow-size solid white;
+
+			.range-big-thumb(@range-track-size, @range-track-grow-size);
+		}
+	}
+
+	&:not([disabled]) {
+		cursor: pointer;
+
+		&:active {
+			&::-webkit-slider-runnable-track:before {
+				background-color: @color-grey;
+			}
+
+			&::-webkit-slider-thumb {
+				.range-big-thumb(@range-track-size, @range-track-grow-size);
+			}
+		}
+	}
+}
