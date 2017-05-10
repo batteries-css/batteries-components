@@ -1,11 +1,11 @@
 @import "mixins.less";
 
-@range-padding: 10px;
 @range-height: 3px;
-@range-track-size: 15px;
-@range-track-grow-size: 5px;
+@range-thumb-size: 5 * @range-height;
+@range-thumb-grow-size: 5px;
+@range-padding: (@range-thumb-size + @range-thumb-grow-size) / 2 + @range-height;
 
-input[type="range"] {
+input[type="range"].range {
 	-webkit-appearance: none;
 
 	padding-top: @range-padding;
@@ -13,33 +13,41 @@ input[type="range"] {
 
 	&::-webkit-slider-runnable-track,
 	&:focus::-webkit-slider-runnable-track {
-		.range-background(@range-track-size, @range-height);
+		position: relative;
+
+		height: @range-height;
+		
+		background-color: @color-light-grey;
 	}
 
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
 
-		.range-thumb(@range-track-size);
-	}
+		position: relative;
 
-	&[disabled] {
-		&::-webkit-slider-thumb {
-			border: @range-track-grow-size solid white;
+		width: @range-thumb-size;
+		height: @range-thumb-size;
 
-			.range-big-thumb(@range-track-size, @range-track-grow-size);
-		}
+		margin-top: -@range-height * 2;
+
+		border-radius: @range-thumb-size;
+		background-color: @color-grey;
+
+		transition-property: width, height, margin;
+		transition-duration: 0.1s;
 	}
 
 	&:not([disabled]) {
 		cursor: pointer;
 
 		&:active {
-			&::-webkit-slider-runnable-track:before {
-				background-color: @color-grey;
-			}
-
 			&::-webkit-slider-thumb {
-				.range-big-thumb(@range-track-size, @range-track-grow-size);
+				margin-top: -(@range-thumb-grow-size + @range-height * 2);
+				
+				@resized: @range-thumb-size + @range-thumb-grow-size * 2;
+
+				width: @resized;
+				height: @resized;
 			}
 		}
 	}
