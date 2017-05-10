@@ -1,34 +1,51 @@
-var gulp    = require("gulp"),
-	replace = require("gulp-replace"),
-	less    = require("gulp-less"),
-	maps    = require("gulp-sourcemaps"),
-	rename  = require("gulp-rename"),
-	minify  = require("gulp-minify-css"),
-	prefix  = require("gulp-autoprefixer");
+const gulp = require("gulp"),
+      connect = require("gulp-connect"),
+      less = require("gulp-less"),
+      minify = require("gulp-clean-css"),
+      sourcemaps = require("gulp-sourcemaps"),
+      rename = require("gulp-rename");
 
-var SRC = {
-	CSS: {
-		WATCH: "src/**/*.less",
-		MAIN: "src/batteries-components.less"
-	}
+const sources = {
+  html: "index.html",
+  css: {
+    input: "src/batteries-components.less",
+    output: "dist/",
+    watch: "src/**/*.less"
+  }
 };
 
-var DIST = {
-	CSS: "dist/"
-};
-
-gulp.task("css", function () {
-	return gulp.src(SRC.CSS.MAIN)
-		.pipe(maps.init())
-		.pipe(less())
-		.pipe(prefix())
-		.pipe(maps.write())
-		.pipe(gulp.dest(DIST.CSS))
-		.pipe(rename("batteries-components.min.css"))
-		.pipe(minify())
-		.pipe(gulp.dest(DIST.CSS));
+gulp.task("serve", () => {
+  return connect.server({
+    root: ".",
+    livereload: true
+  });
 });
 
-gulp.task("watch", function () {
-	gulp.watch([SRC.CSS.WATCH], ["css"]);
+gulp.task("css", () => {
+  return gulp.src(sources.css.input)
+    .pipe(sourcemaps.init())
+    .pipe(less({
+      plugins: [
+        require("less-plugin-glob")
+      ]
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(sources.css.output))
+    .pipe(minify())
+    .pipe(rename({
+      suffix: ".min"
+    }))
+    .pipe(gulp.dest(sources.css.output))
+    .pipe(connect.reload());
+});
+
+gulp.task("default", ["css"]);
+
+gulp.task("watch", ["serve"], () => {
+  gulp.watch(sources.html).on("change", () => {
+    gulp.src(sources.html)
+        .pipe(connect.reload());
+  });
+
+	gulp.watch(sources.css.watch, ["css"]);
 });

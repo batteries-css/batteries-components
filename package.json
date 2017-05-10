@@ -1,11 +1,23 @@
 {
-	"devDependencies": {
-		"gulp": "*",
-		"gulp-replace": "*",
-		"gulp-less": "*",
-		"gulp-sourcemaps": "*",
-		"gulp-rename": "*",
-		"gulp-minify-css": "*",
-		"gulp-autoprefixer": "*"
-	}
+  "name": "batteries-components",
+  "version": "0.0.1",
+  "description": "pure CSS GUI components",
+  "repository": "git@github.com:batteries-css/batteries-components.git",
+  "author": "Michael Neu <git@michaeln.eu>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp",
+    "clean": "rimraf dist/"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-less": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "less-plugin-glob": "^2.0.0",
+    "rimraf": "^2.6.1"
+  }
 }
