@@ -30,8 +30,9 @@ Ranges support colors and a disabled state:
 
 - [Download a release](https://github.com/batteries-css/batteries-components/releases/latest)
 - Clone the repository
-	- then run `npm install`
-	- and `gulp css`
+	- then run `yarn install` to install the dependencies
+	- and `yarn build` to build the components
+	- or `yarn start` to start a development server
 
 
 ## Bugs and feature requests
