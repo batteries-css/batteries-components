@@ -1,0 +1,28 @@
+.range-thumb-style(@style) {
+	&::-webkit-slider-thumb {
+		@style();
+	}
+
+	&::-moz-range-thumb {
+		@style();
+	}
+}
+
+.range-track-style(@style) {
+	&::-webkit-slider-runnable-track,
+	&:focus::-webkit-slider-runnable-track {
+		@style();
+	}
+
+	&::-moz-range-track {
+		@style();
+	}
+}
+
+.range(@name; @color) {
+	.@{name}.range:not([disabled]) {
+		.range-thumb-style({
+			background-color: @color;
+		});
+	}
+}

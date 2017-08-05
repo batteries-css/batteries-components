@@ -1,0 +1,59 @@
+@import "mixins.less";
+
+@range-height: 3px;
+@range-thumb-size: 5 * @range-height;
+@range-thumb-grow-size: 5px;
+@range-padding: (@range-thumb-size + @range-thumb-grow-size) / 2 + @range-height;
+
+input[type="range"].range {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	padding-top: @range-padding;
+	padding-bottom: @range-padding;
+
+	.range-track-style({
+		position: relative;
+
+		height: @range-height;
+		
+		background-color: @color-light-grey;
+	});
+
+	.range-thumb-style({
+		-webkit-appearance: none;
+		-moz-appearance: none;
+
+		position: relative;
+
+		width: @range-thumb-size;
+		height: @range-thumb-size;
+
+		margin-top: -@range-height * 2;
+
+		border-radius: @range-thumb-size;
+		border: none;
+		
+		background-color: @color-grey;
+
+		transition-property: width, height, margin;
+		transition-duration: 0.1s;
+	});
+
+	&:not([disabled]) {
+		cursor: pointer;
+
+		&:active {
+			outline: none;
+
+			.range-thumb-style({
+				margin-top: -(@range-thumb-grow-size + @range-height * 2);
+				
+				@resized: @range-thumb-size + @range-thumb-grow-size * 2;
+
+				width: @resized;
+				height: @resized;
+			});
+		}
+	}
+}
