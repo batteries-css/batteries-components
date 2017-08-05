@@ -1,12 +1,12 @@
 # batteries-components
 
-This repository contains GUI components used as an extension to [batteries-layout](https://github.com/batteries-css/batteries-layout). The components try to resemble a style similar to the Polymer project, however they don't require any JavaScript at all and look good  even if a user doesn't allow JavaScript. 
+This repository contains experimental CSS components used as an extension to [batteries-layout](https://github.com/batteries-css/batteries-layout). The components try to resemble a style similar to Google's material design, however they don't require any JavaScript at all and look good  even if a user doesn't allow websites to execute scripts. 
 
 
 ## Components
 
 #### Button
-Buttons look similar to the Polymer ones. They support various [colors](src/definitions/colors.less) and an `inverted` mode. 
+Buttons look similar to the material design ones. They support various [colors](src/definitions/colors.less) and an `inverted` mode. 
 
 ```html
 <a href="#" class="red button">red button</a>
