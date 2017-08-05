@@ -1,4 +1,4 @@
-# batteries-components
+# batteries-components [![Build Status](https://travis-ci.org/batteries-css/batteries-components.svg?branch=master)](https://travis-ci.org/batteries-css/batteries-components)
 
 This repository contains experimental CSS components used as an extension to [batteries-layout](https://github.com/batteries-css/batteries-layout). The components try to resemble a style similar to Google's material design, however they don't require any JavaScript at all and look good  even if a user doesn't allow websites to execute scripts. 
 
