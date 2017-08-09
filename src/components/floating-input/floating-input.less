@@ -1,0 +1,49 @@
+@import "mixins.less";
+
+.floating.input {
+    display: inline-block;
+    position: relative;
+
+    padding-top: 7px;
+
+    .floated-input-fields({
+        display: block;
+        padding: 10px 3px;
+
+        border: none;
+        border-bottom: 2px solid currentColor;
+
+        transition-property: border-bottom-color;
+        transition-duration: @transition-duration;
+
+        .input-placeholder({
+            opacity: 0;
+
+            transition-property: opacity;
+            transition-duration: @transition-duration;
+        });
+
+        &:focus:placeholder-shown {
+            .input-placeholder({
+                opacity: 0.75;
+                transition-delay: @transition-duration;
+            });
+        }
+
+        .input-label-when-floated({
+            bottom: 75%;
+            font-size: 0.75em;
+        });
+    });
+
+    label {
+        position: absolute;
+        bottom: 10px;
+        left: 5px;
+
+        pointer-events: none;
+
+        transition-property: bottom, font-size, color;
+        transition-duration: @transition-duration;
+    }
+}

@@ -1,0 +1,45 @@
+.floated-input-fields(@style) {
+    input[type="text"],
+    input[type="password"] {
+        @style();
+    }
+}
+
+.input-when-label-floated(@style) {
+    &:not(:placeholder-shown),
+    &:focus {
+        @style();
+    }
+}
+
+.input-label-when-floated(@style) {
+    .input-when-label-floated({
+        & + label {
+            @style();
+        }
+    });
+}
+
+.input-placeholder(@style) {
+    &::-webkit-input-placeholder {
+        @style();
+    }
+
+    &::-moz-placeholder {
+        @style();
+    }
+}
+
+.floating-input(@name; @color) {
+	.@{name}.floating.input {
+        .floated-input-fields({
+            .input-when-label-floated({
+                border-bottom-color: @color;
+            });
+
+            .input-label-when-floated({
+                color: @color;
+            });
+        });
+	}
+}

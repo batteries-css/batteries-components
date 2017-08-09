@@ -25,6 +25,19 @@ Ranges support colors and a disabled state:
 <input type="range" class="teal range">
 ```
 
+##### Text/Passwords
+
+Inputs can have a floating label, and also support colors: 
+
+```html
+<div class="teal floating input">
+  <input type="text" placeholder="e.g. 12345">
+  <label>ZIP code</label>
+</div>
+```
+
+In order to let the label float around, you will need to provide a placeholder. The inputs use the `:placeholder-shown` selector internally to decide whether to float or not to float (that's because we don't have a `:dirty` selector yet, and marking fields as `required` can break form UX with optional fields).
+
 
 ## Quick start
 
