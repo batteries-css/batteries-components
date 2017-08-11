@@ -5,7 +5,10 @@ This repository contains experimental CSS components used as an extension to [ba
 
 ## Components
 
-#### Button
+### Button
+
+![Animated GIF showing buttons](screenshots/buttons.gif)
+
 Buttons look similar to the material design ones. They support various [colors](src/definitions/colors.less) and an `inverted` mode. 
 
 ```html
@@ -14,9 +17,11 @@ Buttons look similar to the material design ones. They support various [colors](
 ```
 
 
-#### Inputs
+### Inputs
 
-##### Range
+#### Range
+
+![Animated GIF showing ranges](screenshots/range.gif)
 
 Ranges support colors and a disabled state: 
 
@@ -25,7 +30,9 @@ Ranges support colors and a disabled state:
 <input type="range" class="teal range">
 ```
 
-##### Text/Passwords
+#### Floating text/password/number inputs
+
+![Animated GIF showing the inputs](screenshots/floating-labels.gif)
 
 Inputs can have a floating label, and also support colors: 
 
