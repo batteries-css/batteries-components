@@ -1,8 +1,25 @@
 language: node_js
 node_js:
-  - "node"
+- node
 
 notifications:
   email: false
 
 cache: yarn
+
+branches:
+  only:
+    - master
+
+before_deploy:
+  - zip batteries-components.zip dist/*
+
+deploy:
+  provider: releases
+  api_key:
+    secure: izSOTJEGt7VYzu71MfABtKXW/Qg7Mt0XL9a8PeRG3slkN+KPvACDHTQksuFymzW+1hHJfmtObVmgXISl+hatr3pSkCavJ9L7xTPemPx2sgNWEzkoqE3HP5CqWlYPxh8v1V1aKVX4Dwomm94a6SO/kfFAsJbPBv0DX+MunhEHi7w6C7yfoN78yZuxoUOsOdK9XWMCr22tcaNpzN5zD352ESjFTeK3NLfzHwyXzanDab4LQYdXIjMciaW0ch62qO1egR9G3JVYOmPejOwxmJ1h6zf7XIYqYc9kmVydU3LKXZyFoQdSB6XjrwCZj/yV0YSDOTvMZr9rAOZgCHPWlAdJ/3j8nB4Z5UdzqjbRTj+/IgmF9oGD9JsintrEbyY6GXCxSmMY2hz5M3NjJadDvSyLNJbHsfG/UPUfhU11ok67mLqQ1qYaYOGKnecAHWWGmLvjXYmZTN2roZREzYToDam2qWzQ1xA7AjfacJMZixpCfL0rkDzVI0BxUa/v2doh/3+BHekUgxeasWl+kBUIcFKqT+LSR+9hv/u00srMOStcOBqyz6hJcKApzZFezco8IHC1TeVX5PhbCSxjDCsJ5khipZT2hP5oDSt/FacLv3YSKkH1m6I/RSgJ3aGtp6z6GSuKIeiP5eXAR1+E3h/UmtnU2n8HKr2SB78ygN6NQx7NfOQ=
+  file: batteries-components.zip
+  skip_cleanup: true
+  on:
+    repo: batteries-css/batteries-components
+    tags: true
