@@ -13,6 +13,7 @@ branches:
     - /v\d+.\d+.\d+/
 
 before_deploy:
+  - yarn build
   - zip batteries-components.zip dist/*
 
 deploy:
