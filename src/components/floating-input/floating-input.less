@@ -1,5 +1,8 @@
 @import "mixins.less";
 
+@padding-top-bottom: 10px;
+@padding-left-right: 3px;
+
 .floating.input {
     display: inline-block;
     position: relative;
@@ -8,7 +11,7 @@
 
     .floated-input-fields({
         display: block;
-        padding: 10px 3px;
+        padding: @padding-top-bottom @padding-left-right;
 
         border: none;
         border-bottom: 2px solid currentColor;
@@ -38,8 +41,8 @@
 
     label {
         position: absolute;
-        bottom: 10px;
-        left: 5px;
+        bottom: @padding-top-bottom;
+        left: @padding-left-right;
 
         pointer-events: none;
 
