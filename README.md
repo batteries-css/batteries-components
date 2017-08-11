@@ -37,7 +37,7 @@ Ranges support colors and a disabled state:
 Inputs can have a floating label, and also support colors: 
 
 ```html
-<div class="teal floating input">
+<div class="teal floating label input">
   <input type="text" placeholder="e.g. 12345">
   <label>ZIP code</label>
 </div>

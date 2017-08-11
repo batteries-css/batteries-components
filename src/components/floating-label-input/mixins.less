@@ -1,4 +1,4 @@
-.floated-input-fields(@style) {
+.floated-label-input-types(@style) {
     input[type="text"],
     input[type="password"],
     input[type="number"] {
@@ -31,9 +31,9 @@
     }
 }
 
-.floating-input(@name; @color) {
+.floating-label-input(@name; @color) {
 	.@{name}.floating.input {
-        .floated-input-fields({
+        .floated-label-input-types({
             .input-when-label-floated({
                 border-bottom-color: @color;
             });
