@@ -1,6 +1,6 @@
 {
   "name": "batteries-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "pure CSS GUI components",
   "repository": "git@github.com:batteries-css/batteries-components.git",
   "author": "Michael Neu <git@michaeln.eu>",
