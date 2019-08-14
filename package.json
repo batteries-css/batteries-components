@@ -8,6 +8,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
+    "test": "echo 'looks fine from here'",
     "clean": "rimraf dist/"
   },
   "devDependencies": {
